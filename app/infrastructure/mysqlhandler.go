@@ -41,7 +41,7 @@ func (r SqliteRow) Next() bool {
 }
 
 func NewMySQlHandler() *MySQlHandler {
-	conn, _ := sql.Open("mysql", "test:test@tcp(localhost:3306)/pismo_db?parseTime=true")
+	conn, _ := sql.Open("mysql", "test:test@tcp(db:3306)/pismo_db?parseTime=true")
 	mySQLHandler := new(MySQlHandler)
 	mySQLHandler.Conn = conn
 	return mySQLHandler

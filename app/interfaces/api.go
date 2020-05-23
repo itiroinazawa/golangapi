@@ -8,7 +8,7 @@ import (
 	"strconv"
 
 	"github.com/gorilla/mux"
-	"github.com/itiroinazawa/golangapi/usecases"
+	"github.com/itiroinazawa/golangapi/app/usecases"
 )
 
 type Interactor interface {

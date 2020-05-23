@@ -5,9 +5,9 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/itiroinazawa/golangapi/infrastructure"
-	"github.com/itiroinazawa/golangapi/interfaces"
-	"github.com/itiroinazawa/golangapi/usecases"
+	"github.com/itiroinazawa/golangapi/app/infrastructure"
+	"github.com/itiroinazawa/golangapi/app/interfaces"
+	"github.com/itiroinazawa/golangapi/app/usecases"
 )
 
 func main() {

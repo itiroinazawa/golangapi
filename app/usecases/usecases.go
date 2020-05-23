@@ -1,7 +1,7 @@
 package usecases
 
 import (
-	"github.com/itiroinazawa/golangapi/model"
+	"github.com/itiroinazawa/golangapi/app/model"
 )
 
 type Interactor struct {

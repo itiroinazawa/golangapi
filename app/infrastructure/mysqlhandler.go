@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/itiroinazawa/golangapi/interfaces"
+	"github.com/itiroinazawa/golangapi/app/interfaces"
 )
 
 type MySQlHandler struct {

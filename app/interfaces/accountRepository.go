@@ -3,7 +3,7 @@ package interfaces
 import (
 	"fmt"
 
-	"github.com/itiroinazawa/golangapi/model"
+	"github.com/itiroinazawa/golangapi/app/model"
 )
 
 type DbAccountRepo DbRepo

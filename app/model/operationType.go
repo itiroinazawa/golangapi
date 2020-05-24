@@ -8,5 +8,5 @@ type OperationType struct {
 }
 
 type OperationTypeRepository interface {
-	GetOperationTypeById(id int) error
+	GetOperationTypeById(id int) OperationType
 }

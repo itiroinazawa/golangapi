@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 
@@ -24,7 +25,7 @@ func main() {
 	interactor := new(usecases.Interactor)
 	interactor.AccountRepository = interfaces.NewDbAccountRepo(handlers)
 	interactor.TransactionRepository = interfaces.NewDbTransactionRepo(handlers)
-	//interactor.OperationTypeRepository = interfaces.NewDbOperationTypeRepo(handlers)
+	interactor.OperationTypeRepository = interfaces.NewDbOperationTypeRepo(handlers)
 
 	apiHandler := interfaces.ApiHandler{}
 	apiHandler.Interactor = interactor
@@ -34,5 +35,6 @@ func main() {
 	router.HandleFunc("/accounts/{accountId}/transactions", apiHandler.GetTransactionsByAccountID)
 	router.HandleFunc("/transactions", apiHandler.CreateTransaction).Methods("POST")
 
+	fmt.Println("Starting api-server - port: 8000")
 	log.Fatal(http.ListenAndServe(":8000", router))
 }

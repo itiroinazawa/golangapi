@@ -1,7 +1,10 @@
 package usecases
 
 import (
+	"fmt"
 	"time"
+
+	"github.com/itiroinazawa/golangapi/app/model"
 )
 
 // Transaction payment
@@ -14,7 +17,10 @@ type Transaction struct {
 }
 
 func (interactor *Interactor) CreateTransaction(accountID int, operationTypeID int, amount float32) error {
-	err := interactor.TransactionRepository.CreateTransaction(accountID, operationTypeID, amount)
+	ot := interactor.OperationTypeRepository.GetOperationTypeById(operationTypeID)
+	parsedAmount := parseAmountByOperationType(ot, amount)
+	fmt.Println("Amount2:", amount)
+	err := interactor.TransactionRepository.CreateTransaction(accountID, operationTypeID, parsedAmount)
 	return err
 }
 
@@ -31,4 +37,17 @@ func (interactor *Interactor) GetTransactionsByAccountID(accountID int) ([]Trans
 	}
 
 	return transactions, nil
+}
+
+func parseAmountByOperationType(ot model.OperationType, amount float32) float32 {
+
+	if ot.ID == 0 {
+		fmt.Println("Not valid operation type")
+	} else if ot.IsNegativeOperator {
+		amount = amount * float32(-1)
+	}
+
+	fmt.Println("Amount1:", amount)
+	return amount
+
 }

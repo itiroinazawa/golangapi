@@ -17,7 +17,6 @@ func (handler *MySQlHandler) Execute(statement string) {
 }
 
 func (handler *MySQlHandler) Query(statement string) interfaces.Row {
-	//fmt.Println(statement)
 	rows, err := handler.Conn.Query(statement)
 	if err != nil {
 		fmt.Println(err)

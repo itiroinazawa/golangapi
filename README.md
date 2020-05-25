@@ -4,8 +4,10 @@ Golang API created using Clean Architecture to describe a simple functionality o
 
 ### Prerequisites
 
-Docker 
+Docker
+
 Docker Compose
+
 Go
 
 ## Getting Started

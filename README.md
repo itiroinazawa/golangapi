@@ -12,6 +12,12 @@ Go
 
 ## Getting Started
 
+Set the folder you cloned the repository as your GOPATH using this command
+
+```
+export GOPATH=${PWD}
+```
+
 To run the application run the following command
 
 ```

@@ -4,11 +4,19 @@ Golang API created using Clean Architecture to describe a simple functionality o
 
 ### Prerequisites
 
-Docker 
+Docker
+
 Docker Compose
+
 Go
 
 ## Getting Started
+
+Set the folder you cloned the repository as your GOPATH using this command
+
+```
+export GOPATH=${PWD}
+```
 
 To run the application run the following command
 
@@ -23,8 +31,11 @@ This will create an docker image of the application, a MySQL instance to run the
 After the application is up and running, you can use it using postman in the following endpoints:
 
 (POST)  http://localhost:8000/accounts
+
 (GET)   http://localhost:8000/accounts/{id}
+
 (POST)  http://localhost:8000/transactions
+
 (GET)   http://localhost:8000/accounts/{id}/transactions
 
 ## Running the tests

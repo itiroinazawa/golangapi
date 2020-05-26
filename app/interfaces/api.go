@@ -12,7 +12,7 @@ import (
 )
 
 type Interactor interface {
-	CreateAccount(documentNumber string) error
+	CreateAccount(documentNumber string, availableCreditLimit float32) error
 	CreateTransaction(accountID int, operationTypeID int, amount float32) error
 	GetAccount(id int) (usecases.Account, error)
 	GetTransactionsByAccountID(accountID int) ([]usecases.Transaction, error)
@@ -45,7 +45,7 @@ func (handler ApiHandler) CreateAccount(w http.ResponseWriter, r *http.Request) 
 	body, _ := ioutil.ReadAll(r.Body)
 	json.Unmarshal(body, &acc)
 
-	err := handler.Interactor.CreateAccount(acc.DocumentNumber)
+	err := handler.Interactor.CreateAccount(acc.DocumentNumber, acc.AvailableCreditLimit)
 
 	if err != nil {
 		fmt.Println("Error in CreateAccount: ", err)

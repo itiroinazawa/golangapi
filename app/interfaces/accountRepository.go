@@ -28,9 +28,16 @@ func (repo *DbAccountRepo) GetAccount(id int) model.Account {
 	return acc
 }
 
-func (repo *DbAccountRepo) CreateAccount(documentNumber string) error {
+func (repo *DbAccountRepo) CreateAccount(documentNumber string, availableCreditLimit float32) error {
 
-	command := fmt.Sprintf("INSERT INTO Account (document_number) VALUES ('%v')", documentNumber)
+	command := fmt.Sprintf("INSERT INTO Account (document_number, available_credit_limit) VALUES ('%v', '%f')", documentNumber, availableCreditLimit)
+	repo.dbHandler.Execute(command)
+	return nil
+}
+
+func (repo *DbAccountRepo) UpdateAvailableLimit(accountID int, availableCreditLimit float32) error {
+
+	command := fmt.Sprintf("UPDATE Account SET available_credit_limit='%f' WHERE id = '%v", availableCreditLimit, accountID)
 	repo.dbHandler.Execute(command)
 	return nil
 }
